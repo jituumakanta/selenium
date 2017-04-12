@@ -2,6 +2,7 @@
  * Created by jitu on 3/29/2017.
  */
 
+import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Attributes;
@@ -78,28 +79,37 @@ public class attribute {
         System.out.println(set2);
         System.out.println(set3);
         String[] strings = set2.stream().toArray(String[]::new);
-        for(int i5=0;i5<3;i5++){
+        for(int i5=0;i5<1;i5++){
             System.out.println(strings[i5]);
             String f=strings[i5];
 
             Elements ell = document.getElementsByAttributeValue(attribute.attributename(strings[i5]), attribute.attributevalue(strings[i5]));
+            JSONArray arr = new JSONArray();
             for (Element at : ell) {
                 if (attribute.hasAHref(at) == true && attribute.hasImgSrc(at) == true && at.hasText() == true) {
+
                     Elements links1 = at.getElementsByTag("a");
-                    Elements links2 = at.getElementsByTag("img");
                     for (Element link : links1) {
                         String linkHref = link.attr("abs:href");
                         System.out.println(linkHref);
                         String linkText = link.text();
                         System.out.println(linkText);
+
+                        JSONObject m=new JSONObject();
+                        m.put("name", linkHref);
+                        m.put("text", linkText);
+                        arr.add(m);
                     }
+                    Elements links2 = at.getElementsByTag("img");
                     for (Element link : links2) {
                         String linkHref = link.attr("src");
                         System.out.println(linkHref);
                     }
+
                     System.out.println("+++++++++++++++++++++++");
                 }
             }
+            System.out.println(arr);
         }
 
     }
