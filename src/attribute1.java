@@ -15,19 +15,7 @@ import java.util.regex.Pattern;
 public class attribute1 {
     public static void main(String[] args) throws IOException {
 
-        String d = "ddd jitu";
-        String d1 = "sss jitu";
-        if (d.contains("sss jitu")) {
-            System.out.println("yes");
-        }
-        System.out.println(similarity("id=\"result_4\" data-asin=\"B06X3WR2P4\" class=\"s-result-item celwidget \"", "id=\"result_5\" data-asin=\"B01GRFC3E2\" class=\"s-result-item celwidget \""));
-
-
-        Document document = Jsoup.connect("http://www.cricbuzz.com/cricket-news").userAgent("Mozilla/5.0 (Windows NT 6.2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/30.0.1599.69 Safari/537.36")
-                .maxBodySize(0)
-                .get();
-
-        // System.out.println(document);
+        Document document = Jsoup.connect("http://www.amazon.in/s/ref=nb_sb_noss_2?url=search-alias%3Daps&field-keywords=computer").userAgent("Mozilla/5.0 (Windows NT 6.2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/30.0.1599.69 Safari/537.36").maxBodySize(0).get();
         Elements links = document.select("body");
         int i = 1;
         HashMap<Integer, Element> hs = new HashMap();
@@ -53,8 +41,6 @@ public class attribute1 {
 
 
         for (Map.Entry m : hs.entrySet()) {
-
-
             Element al = (Element) m.getValue();
             Attributes at2 = al.attributes();
             String s1 = at2.toString();
@@ -63,22 +49,28 @@ public class attribute1 {
                 Attributes at1 = o.attributes();
                 String s2 = at1.toString();
                 //System.out.println(similarity(s1,s2));
-                if (similarity(s1, s2) > .5 && noOfSiblingElements(al) > 4 && hasChild(al) == true && hasAHref(al) == true && hasImgSrc(al) == true && al.hasText() == true) {
-                    System.out.println(at2 + "         " + at1);
+                if (similarity(s1, s2) == 1 && noOfSiblingElements(al) > 5 && hasChild(al) == true && hasAHref(al) == true && hasImgSrc(al) == true && al.hasText() == true) {
+
+                    set2.add(s1);
+                } else if (similarity(s1, s2) > .3 && noOfSiblingElements(al) > 5 && hasChild(al) == true && hasAHref(al) == true && hasImgSrc(al) == true && al.hasText() == true) {
+                    set3.add(s1);
+                    //System.out.println(at2 + "         " + at1);
+                } else if (similarity(s1, s2) == 1 && noOfSiblingElements(al) > 5 && hasChild(al) == true && hasAHref(al) == true && al.hasText() == true ) {
+                    set4.add(s1);
                 }
-
-
             }
-
-            /*String ff = m.toString();
-            //System.out.println(m);
-            //System.out.println(similarity("id=\"result_4\" data-asin=\"B06X3WR2P4\" class=\"s-result-item celwidget \"",ff));
-           if(similarity("id=\"post-12288\" class=\"post-12288 post type-post status-publish format-standard hentry category-alerts-information category-biomedical-jobs category-experienced-jobs category-jobs-in-bangalore category-jobs-in-pune\"",ff)>.5){
-            System.out.println(m);}*/
+        }
+        for (String s : set2) {
+            System.out.println(s);
+        }
+        if( set2.size()< set3.size()){
+            for (String s : set3) {
+                System.out.println(s);
+            }
         }
 
-
     }
+
 
     public static int noOfSiblingElements(Element e) {
         int i;
