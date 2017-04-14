@@ -23,7 +23,11 @@ public class attribute {
 
     public static void main(String[] args) throws IOException {
 
-        Document document = Jsoup.connect("https://www.pinkvilla.com/").get();
+        Document document = Jsoup.connect("http://www.shopclues.com/search?q=computer&sc_z=4444&z=1").userAgent("Mozilla/5.0 (Windows NT 6.2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/30.0.1599.69 Safari/537.36")
+                .maxBodySize(0)
+                .get();
+
+       // System.out.println(document);
         Elements links = document.select("body");
         int i = 1;
         HashMap<Integer, String> hs = new HashMap();
@@ -34,10 +38,12 @@ public class attribute {
 
         //ADDING TOTAL ATTRIBUTE IN HASHMAP
         for (Element e : links) {
+            //System.out.println(e);
             Elements at = e.getAllElements();
             for (Element e1 : at) {
                 Attributes at1 = e1.attributes();
                 String ff = at1.toString();
+               // System.out.println(e1);
                 if (ff != null && !ff.trim().isEmpty() && !ff.equals("")) {
                     hs.put(i, ff);
                 }
@@ -45,11 +51,14 @@ public class attribute {
             }
         }
 
+
+
+
         //GETTING HOWMANY SAME ATTRIBUTES IN THE DOCUMENT
         for (Map.Entry m : hs.entrySet()) {
             String value = (String) m.getValue();
             Integer count = result.get(value);
-          //  System.out.println(value+count);
+            //System.out.println(value+count);
             if (count == null)
                 result.put(value, new Integer(1));
             else
@@ -78,7 +87,7 @@ public class attribute {
 
         System.out.println(set2);
         System.out.println(set3);
-        String[] strings = set2.stream().toArray(String[]::new);
+       /* String[] strings = set2.stream().toArray(String[]::new);
         for(int i5=0;i5<1;i5++){
             System.out.println(strings[i5]);
             String f=strings[i5];
@@ -110,7 +119,7 @@ public class attribute {
                 }
             }
             System.out.println(arr);
-        }
+        }*/
 
     }
 
@@ -128,33 +137,7 @@ public class attribute {
 
 
 
-    public static boolean hasChild(Element e) throws IOException {
-        boolean b;
-        ArrayList al = new ArrayList();
 
-        Elements children = e.children();
-        for (Element child : children) {
-            al.add(child);
-            // System.out.println(child);
-            // System.out.println("+++++++");
-
-
-        }
-
-
-        if (al.isEmpty() == true) {
-            b = false;
-            // System.out.println("empty");
-        } else {
-            b = true;
-            // System.out.println("not empty");
-        }
-
-        //System.out.println(b);
-        return b;
-
-
-    }
 
     public static String attributename(String s) {
         String subString1 = null;
@@ -184,6 +167,34 @@ public class attribute {
             attvalue1 = attvalue;
         }
         return attvalue1;
+    }
+
+    public static boolean hasChild(Element e)  {
+        boolean b;
+        ArrayList al = new ArrayList();
+
+        Elements children = e.children();
+        for (Element child : children) {
+            al.add(child);
+            // System.out.println(child);
+            // System.out.println("+++++++");
+
+
+        }
+
+
+        if (al.isEmpty() == true) {
+            b = false;
+            // System.out.println("empty");
+        } else {
+            b = true;
+            // System.out.println("not empty");
+        }
+
+        //System.out.println(b);
+        return b;
+
+
     }
 
     public static boolean hasAHref(Element e) {
