@@ -1,3 +1,5 @@
+import org.json.simple.JSONArray;
+import org.json.simple.JSONObject;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Attributes;
 import org.jsoup.nodes.Document;
@@ -15,7 +17,7 @@ import java.util.regex.Pattern;
 public class attribute1 {
     public static void main(String[] args) throws IOException {
 
-        Document document = Jsoup.connect("http://www.amazon.in/s/ref=nb_sb_noss_2?url=search-alias%3Daps&field-keywords=computer").userAgent("Mozilla/5.0 (Windows NT 6.2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/30.0.1599.69 Safari/537.36").maxBodySize(0).get();
+        Document document = Jsoup.connect("http://www.techintor.com/").maxBodySize(0).get();
         Elements links = document.select("body");
         int i = 1;
         HashMap<Integer, Element> hs = new HashMap();
@@ -52,10 +54,10 @@ public class attribute1 {
                 if (similarity(s1, s2) == 1 && noOfSiblingElements(al) > 5 && hasChild(al) == true && hasAHref(al) == true && hasImgSrc(al) == true && al.hasText() == true) {
 
                     set2.add(s1);
-                } else if (similarity(s1, s2) > .3 && noOfSiblingElements(al) > 5 && hasChild(al) == true && hasAHref(al) == true && hasImgSrc(al) == true && al.hasText() == true) {
+                } else if (similarity(s1, s2) > .5 && noOfSiblingElements(al) > 5 && hasChild(al) == true && hasAHref(al) == true && hasImgSrc(al) == true && al.hasText() == true) {
                     set3.add(s1);
-                    //System.out.println(at2 + "         " + at1);
-                } else if (similarity(s1, s2) == 1 && noOfSiblingElements(al) > 5 && hasChild(al) == true && hasAHref(al) == true && al.hasText() == true ) {
+                    //  System.out.println(at2 + "         " + at1);
+                } else if (similarity(s1, s2) == 1 && noOfSiblingElements(al) > 3 && hasChild(al) == true && hasAHref(al) == true && al.hasText() == true) {
                     set4.add(s1);
                 }
             }
@@ -63,11 +65,57 @@ public class attribute1 {
         for (String s : set2) {
             System.out.println(s);
         }
-        if( set2.size()< set3.size()){
-            for (String s : set3) {
+        for (String s : set3) {
+            if (set4.size() < set3.size()) {
                 System.out.println(s);
             }
         }
+        for (String s : set4) {
+            if (set4.size() > set3.size()) {
+                System.out.println(s);
+            }
+        }
+
+
+
+        String[] strings = set2.stream().toArray(String[]::new);
+        for(int i5=0;i5<1;i5++){
+            System.out.println(strings[i5]);
+            String f=strings[i5];
+
+            Elements ell = document.getElementsByAttributeValue(attribute.attributename(strings[i5]), attribute.attributevalue(strings[i5]));
+            JSONArray arr = new JSONArray();
+            for (Element at : ell) {
+                if (attribute.hasAHref(at) == true && attribute.hasImgSrc(at) == true && at.hasText() == true) {
+
+                    Elements links1 = at.getElementsByTag("a");
+                    for (Element link : links1) {
+                        String linkHref = link.attr("abs:href");
+                        System.out.println(linkHref);
+                        String linkText = link.text();
+                        System.out.println(linkText);
+
+                        JSONObject m=new JSONObject();
+                        m.put("name", linkHref);
+                        m.put("text", linkText);
+                        arr.add(m);
+                    }
+                    Elements links2 = at.getElementsByTag("img");
+                    for (Element link : links2) {
+                        String linkHref = link.attr("src");
+                        System.out.println(linkHref);
+                    }
+
+                    System.out.println("+++++++++++++++++++++++");
+                }
+            }
+            System.out.println(arr);
+        }
+
+
+
+
+
 
     }
 
