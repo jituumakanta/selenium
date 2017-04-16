@@ -17,7 +17,7 @@ import java.util.regex.Pattern;
 public class attribute1 {
     public static void main(String[] args) throws IOException {
 
-        Document document = Jsoup.connect("http://www.techintor.com/").maxBodySize(0).get();
+        Document document = Jsoup.connect("https://www.techintor.com/").maxBodySize(0).get();
         Elements links = document.select("body");
         int i = 1;
         HashMap<Integer, Element> hs = new HashMap();
@@ -55,14 +55,14 @@ public class attribute1 {
 
                     set2.add(s1);
                 } else if (similarity(s1, s2) > .5 && noOfSiblingElements(al) > 5 && hasChild(al) == true && hasAHref(al) == true && hasImgSrc(al) == true && al.hasText() == true) {
-                    set3.add(s1);
+                    // set2.add(s1);
                     //  System.out.println(at2 + "         " + at1);
                 } else if (similarity(s1, s2) == 1 && noOfSiblingElements(al) > 3 && hasChild(al) == true && hasAHref(al) == true && al.hasText() == true) {
-                    set4.add(s1);
+                    // set2.add(s1);
                 }
             }
         }
-        for (String s : set2) {
+       /* for (String s : set2) {
             System.out.println(s);
         }
         for (String s : set3) {
@@ -74,17 +74,19 @@ public class attribute1 {
             if (set4.size() > set3.size()) {
                 System.out.println(s);
             }
+        }*/
+
+        for (String s : set2) {
+            System.out.println(s);
         }
 
-
-
         String[] strings = set2.stream().toArray(String[]::new);
-        for(int i5=0;i5<1;i5++){
-            System.out.println(strings[i5]);
-            String f=strings[i5];
+        for (int i5 = 0; i5 < set2.size(); i5++) {
+            System.out.println("conversion" + strings[i5]);
+            String f = strings[i5];
 
             Elements ell = document.getElementsByAttributeValue(attribute.attributename(strings[i5]), attribute.attributevalue(strings[i5]));
-            JSONArray arr = new JSONArray();
+           /* JSONArray arr = new JSONArray();
             for (Element at : ell) {
                 if (attribute.hasAHref(at) == true && attribute.hasImgSrc(at) == true && at.hasText() == true) {
 
@@ -109,14 +111,78 @@ public class attribute1 {
                     System.out.println("+++++++++++++++++++++++");
                 }
             }
+            System.out.println(arr);*/
+
+            JSONArray arr = new JSONArray();
+
+            for (Element at : ell) {
+                System.out.println(noOfAHrefElements(at)+""+noOfSrcElements(at));
+                int n = noOfAHrefElements(at);
+                int n1=noOfSrcElements(at);
+                JSONObject m = new JSONObject();
+                for (int k = 0; k < n; k++) {
+                    Element link = at.select("a").get(k);
+                    String linkHref = link.attr("abs:href");
+                    String linkText3 = link.text();
+
+                    Element linkk = at.select("a").get(1);
+                    String linkHreff = linkk.attr("href");
+                    String linkText4 = linkk.text();
+
+                   /* System.out.println(linkHref);
+                    System.out.println(linkText3);
+                    System.out.println(linkHreff);
+                    System.out.println(linkText4);*/
+
+                    m.put("url"+k, linkHref);
+                    m.put("text"+k+n,linkText3);
+                    //m.put("text", linkText4);
+                   // m.put("text1", linkText4);
+                  /*  if (!linkHref.equals(linkHreff)) {
+                        m.put("url", linkHreff);
+                    }*/
+                }
+                for(int f1=0;f1<n1;f1++) {
+                    Element link1 = at.select("img").get(f1);
+                    String linkHref1 = link1.attr("src");
+                    System.out.println(linkHref1);
+                    m.put("image", linkHref1);
+                }
+
+                arr.add(m);
+
+            }
+
             System.out.println(arr);
         }
 
 
+    }
 
 
+    public static int noOfAHrefElements(Element e) {
+        LinkedList ak = new LinkedList();
+        int i = 0;
+        Elements links = e.select("a[href]");
+        for (Element ei : links) {
+            ak.add(ei);
+        }
+        i = ak.size();
+
+        return i;
+    }
 
 
+    public static int noOfSrcElements(Element e) {
+        LinkedList ak = new LinkedList();
+        int i = 0;
+        Elements links = e.select("img[src]");
+        for (Element ei : links) {
+            ak.add(ei);
+        }
+        i = ak.size();
+
+        return i;
     }
 
 
