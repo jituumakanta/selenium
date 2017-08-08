@@ -1,0 +1,22 @@
+<component name="libraryTable">
+  <library name="cglib-nodep-2.1_3">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/src/cglib-nodep-2.1_3.jar!/" />
+      <root url="jar://$PROJECT_DIR$/src/commons-codec-1.6.jar!/" />
+      <root url="jar://$PROJECT_DIR$/src/commons-exec-1.1.jar!/" />
+      <root url="jar://$PROJECT_DIR$/src/commons-io-2.2.jar!/" />
+      <root url="jar://$PROJECT_DIR$/src/commons-logging-1.1.3.jar!/" />
+      <root url="jar://$PROJECT_DIR$/src/guava-15.0.jar!/" />
+      <root url="jar://$PROJECT_DIR$/src/httpclient-4.3.jar!/" />
+      <root url="jar://$PROJECT_DIR$/src/httpcore-4.3.jar!/" />
+      <root url="jar://$PROJECT_DIR$/src/jna-3.4.0.jar!/" />
+      <root url="jar://$PROJECT_DIR$/src/json-20080701.jar!/" />
+      <root url="jar://$PROJECT_DIR$/src/platform-3.4.0.jar!/" />
+      <root url="jar://$PROJECT_DIR$/src/selenium-api-2.37.1.jar!/" />
+      <root url="jar://$PROJECT_DIR$/src/selenium-firefox-driver-2.37.1.jar!/" />
+      <root url="jar://$PROJECT_DIR$/src/selenium-remote-driver-2.37.1.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

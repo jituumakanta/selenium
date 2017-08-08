@@ -5,4 +5,5 @@ package interfacetest;
  */
 public interface shape {
     public abstract void shape();
+
 }

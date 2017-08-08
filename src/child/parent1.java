@@ -7,8 +7,12 @@ public class parent1 {
     public parent1(String hhh, String jjj) {
     }
 
-    public void test1() {
+    public parent1() {
 
+    }
+
+    public void test1() {
+        System.out.println("parent2");
     }
 
     public void test2() {
