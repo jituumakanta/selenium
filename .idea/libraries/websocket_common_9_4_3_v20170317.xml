@@ -1,0 +1,66 @@
+<component name="libraryTable">
+  <library name="websocket-common-9.4.3.v20170317">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/websocket-common-9.4.3.v20170317.jar!/" />
+      <root url="jar://$PROJECT_DIR$/xalan-2.7.2.jar!/" />
+      <root url="jar://$PROJECT_DIR$/websocket-client-9.4.3.v20170317.jar!/" />
+      <root url="jar://$PROJECT_DIR$/sac-1.3.jar!/" />
+      <root url="jar://$PROJECT_DIR$/xercesImpl-2.11.0.jar!/" />
+      <root url="jar://$PROJECT_DIR$/junit-4.12.jar!/" />
+      <root url="jar://$PROJECT_DIR$/phantomjsdriver-1.2.0.jar!/" />
+      <root url="jar://$PROJECT_DIR$/okhttp-3.8.1.jar!/" />
+      <root url="jar://$PROJECT_DIR$/websocket-api-9.4.3.v20170317.jar!/" />
+      <root url="jar://$PROJECT_DIR$/okio-1.13.0.jar!/" />
+      <root url="jar://$PROJECT_DIR$/xml-apis-1.4.01.jar!/" />
+      <root url="jar://$PROJECT_DIR$/phantomjsdriver-1.0.3-dev.jar!/" />
+      <root url="jar://$PROJECT_DIR$/phantomjsdriver-1.1.0.jar!/" />
+      <root url="jar://$PROJECT_DIR$/phantomjsdriver-1.4.0.jar!/" />
+      <root url="jar://$PROJECT_DIR$/phantomjsdriver-1.0.3.jar!/" />
+      <root url="jar://$PROJECT_DIR$/phantomjsdriver-1.0.1.jar!/" />
+      <root url="jar://$PROJECT_DIR$/neko-htmlunit-2.25.jar!/" />
+      <root url="jar://$PROJECT_DIR$/phantomjsdriver-1.0.0.jar!/" />
+      <root url="jar://$PROJECT_DIR$/phantomjsdriver-1.0.4.jar!/" />
+      <root url="jar://$PROJECT_DIR$/serializer-2.7.2.jar!/" />
+      <root url="jar://$PROJECT_DIR$/jna-platform-4.1.0.jar!/" />
+      <root url="jar://$PROJECT_DIR$/jna-4.1.0.jar!/" />
+      <root url="jar://$PROJECT_DIR$/jetty-util-9.4.1.v20170120.jar!/" />
+      <root url="jar://$PROJECT_DIR$/jetty-io-9.4.1.v20170120.jar!/" />
+      <root url="jar://$PROJECT_DIR$/javax.servlet-api-3.1.0.jar!/" />
+      <root url="jar://$PROJECT_DIR$/httpmime-4.5.3.jar!/" />
+      <root url="jar://$PROJECT_DIR$/httpcore-4.4.6.jar!/" />
+      <root url="jar://$PROJECT_DIR$/httpclient-4.5.3.jar!/" />
+      <root url="jar://$PROJECT_DIR$/htmlunit-driver-2.26.jar!/" />
+      <root url="jar://$PROJECT_DIR$/htmlunit-core-js-2.26.jar!/" />
+      <root url="jar://$PROJECT_DIR$/htmlunit-2.26.jar!/" />
+      <root url="jar://$PROJECT_DIR$/hamcrest-core-1.3.jar!/" />
+      <root url="jar://$PROJECT_DIR$/guava-21.0.jar!/" />
+      <root url="jar://$PROJECT_DIR$/gson-2.8.0.jar!/" />
+      <root url="jar://$PROJECT_DIR$/cssparser-0.9.22.jar!/" />
+      <root url="jar://$PROJECT_DIR$/commons-logging-1.2.jar!/" />
+      <root url="jar://$PROJECT_DIR$/commons-io-2.5.jar!/" />
+      <root url="jar://$PROJECT_DIR$/commons-lang3-3.5.jar!/" />
+      <root url="jar://$PROJECT_DIR$/commons-exec-1.3.jar!/" />
+      <root url="jar://$PROJECT_DIR$/commons-codec-1.10.jar!/" />
+      <root url="jar://$PROJECT_DIR$/client-combined-3.4.0-nodeps.jar!/" />
+      <root url="jar://$PROJECT_DIR$/cglib-nodep-3.2.4.jar!/" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://$PROJECT_DIR$/phantomjsdriver-1.0.3-dev-javadoc.jar!/" />
+      <root url="jar://$PROJECT_DIR$/phantomjsdriver-1.1.0-javadoc.jar!/" />
+      <root url="jar://$PROJECT_DIR$/phantomjsdriver-1.0.1-javadoc.jar!/" />
+      <root url="jar://$PROJECT_DIR$/phantomjsdriver-1.2.0-javadoc.jar!/" />
+      <root url="jar://$PROJECT_DIR$/phantomjsdriver-1.0.0-javadoc.jar!/" />
+      <root url="jar://$PROJECT_DIR$/phantomjsdriver-1.0.4-javadoc.jar!/" />
+      <root url="jar://$PROJECT_DIR$/phantomjsdriver-1.0.3-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://$PROJECT_DIR$/phantomjsdriver-1.0.0-sources.jar!/" />
+      <root url="jar://$PROJECT_DIR$/phantomjsdriver-1.0.3-sources.jar!/" />
+      <root url="jar://$PROJECT_DIR$/phantomjsdriver-1.0.1-sources.jar!/" />
+      <root url="jar://$PROJECT_DIR$/phantomjsdriver-1.0.4-sources.jar!/" />
+      <root url="jar://$PROJECT_DIR$/phantomjsdriver-1.1.0-sources.jar!/" />
+      <root url="jar://$PROJECT_DIR$/phantomjsdriver-1.0.3-dev-sources.jar!/" />
+      <root url="jar://$PROJECT_DIR$/phantomjsdriver-1.2.0-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>
