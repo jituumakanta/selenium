@@ -58,19 +58,21 @@ public class setnews {
 
         Document document = null;
         try {
-            document = Jsoup.connect("http://www.gadgetsnow.com").get();
+            document = Jsoup.connect("http://www.gadgetsnow.com/tech-news").get();
         } catch (IOException e) {
             e.printStackTrace();
         }
         Element link = document.select("body").first();
         Elements links1 = link.select("a[href]");
         for (Element link1 : links1) {
+
             if (wordcount(link1.text()) > 3) {
-                String mainlink = link1.attr("abs:href");
-                Document page = Jsoup.connect(mainlink).timeout(100000).get();
+                Document page;
+                try{
+                String singlepagelink = link1.attr("abs:href");
+                page = Jsoup.connect(singlepagelink).timeout(100000).get();
                 //getting the title
                 String title = page.title();
-
                 if (title.contains("Gadgets Now")) {
                 //method2.....getting the image by providing class name............................................
                 try {
@@ -78,7 +80,7 @@ public class setnews {
                     //Element src = page.getElementById("highlight");//method2
                     Element src1 = src.select("img").last();
                     String imgsrc = src1.attr("abs:src");
-                    System.out.println(mainlink);
+                    System.out.println(singlepagelink);
                     System.out.println(title);
                     System.out.println(imgsrc);
                 } catch (Exception e) {
@@ -125,6 +127,9 @@ public class setnews {
                     System.out.println(title);
                     System.out.println(getKey(map, a));
                     map.clear();*/
+                }}
+                catch (Exception e){
+                    page=null;
                 }
             }
 
